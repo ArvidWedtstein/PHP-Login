@@ -124,7 +124,7 @@ section .color:nth-child(3) {
     left: 50%;
     top: 80%;
     color: #ffffff;
-
+    
 }
 .loader span {
     position: absolute;
