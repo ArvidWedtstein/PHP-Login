@@ -72,7 +72,7 @@ function createUser($conn, $name, $email, $username, $pwd) {
 	$sql = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd) VALUES ($name, $email, $username, $pwd);";
 
 	
-	$stmt = myqsqli_stmt_init($conn);
+	$stmt = mysqli_stmt_init($conn);
 	if (!mysqli_stmt_prepare($stmt, $sql)) {
 		header("location: ../signup.php?error=stmtfailed");
 		exit();
