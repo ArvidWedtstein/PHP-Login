@@ -23,6 +23,8 @@
 		<span style="--i:5"><a href="signup.php">cligg</a></span>
 		<span style="--i:6"><a href="signup.php">cligg</a></span>
 		<span style="--i:7"><a href="signup.php">cligg</a></span>
+		<span style="--i:8"><a href="signup.php">cligg</a></span>
+		<span style="--i:9"><a href="signup.php">cligg</a></span>
 	</div>	
 </body>
 <?php

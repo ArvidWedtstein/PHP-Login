@@ -68,7 +68,7 @@ function uidExists($conn, $username, $email) {
 }
 
 function createUser($conn, $name, $email, $username, $pwd) {
-
+	console.log("createuser");
 	$sql = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd) VALUES ($name, $email, $username, $pwd);";
 
 	

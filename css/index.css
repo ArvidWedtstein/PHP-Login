@@ -145,11 +145,13 @@ section .color:nth-child(3) {
     animation-delay: calc(-1s * var(--i));
     transform-origin: bottom;
     background: #0f0;
-    box-shadow: 0 0 10px #00ff00,
+    border-radius: 10%;
+    /*box-shadow: 0 0 10px #00ff00,
     0 0 40px #0f0,
     0 0 80px #0f0,
     0 0 120px #0f0,
-    0 0 160px #0f0;
+    0 0 160px #0f0;*/
+    box-shadow: 0px 3px 0px 2px rgba(0,255,0,0.1), 0px 6px 0px 4px rgba(0,255,0,0.1), 0px 9px 0px 6px rgba(0,255,0,0.1), 0px 12px 0px 8px rgba(0,255,0,0.1), 0px 15px 0px 10px rgba(0,255,0,0.1), 0px 18px 0px 12px rgba(0,255,0,0.1), 0px 21px 0px 14px rgba(0,255,0,0.1), 0px 24px 0px 16px rgba(0,255,0,0.1), 0px 27px 0px 18px rgba(0,255,0,0.1), 0px 30px 0px 20px rgba(0,255,0,0.1), inset 0px 50px 50px -30px rgba(0,255,0,0);
     color: #ffffff;
 }
 
