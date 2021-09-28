@@ -7,8 +7,8 @@ if (isset($_POST["submit"])) {
 	$pwd = $_POST["pwd"];
 	$pwdRepeat = $_POST["pwdrepeat"];
 	
-	require_once 'dbh.inc.php';
-	require_once 'functions.inc.php';
+	include 'dbh.inc.php';
+	include 'functions.inc.php';
 	
 	
 	if (emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat) !== false) {
@@ -35,11 +35,11 @@ if (isset($_POST["submit"])) {
 	  
 	
 	
-	//createUser($conn, $name, $email, $username, $pwd);
+	createUser($conn, $name, $email, $username, $pwd);
 	
 }
 else {
-	//header("location: ../signup.php");
+	header("location: ../signup.php");
 	exit();
 }
 
