@@ -112,4 +112,8 @@ function createUser($conn, $name, $email, $username, $pwd) {
 	header("location: ../signup.php?error=none");
 	exit();
 }
+
+function loginUser($conn, $username, $pwd) {
+	
+}
 ?>

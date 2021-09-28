@@ -30,33 +30,33 @@
 			</form>
 		</div>
 		<!--<?php
-			/*if (isset($_GET["error"])) {
-				if (isset($_GET["error"] == "emptyinput")) {
+  	  /*if (isset($_GET["error"])) {
+			if (isset($_GET["error"] == "emptyinput")) {
 					echo "<p>FILL IN ALL FIELDS</p>";
-				}
-				else if (isset($_GET["error"] == "invaliduid")) {
-					echo "<p>invalid username</p>"
-				}
-				else if (isset($_GET["error"] == "invalidemail")) {
-					echo "<p>invalid email</p>"
-				}
-				else if (isset($_GET["error"] == "passwordsdontmatch")) {
-					echo "<p>Passwords doesn't match</p>"
-				}
-				else if (isset($_GET["error"] == "stmtfailed")) {
-					echo "<p>AAAAAAAAAAAAAAA. Something went wrong. Try again later</p>"
-				}
-				else if (isset($_GET["error"] == "usernametaken")) {
-					echo "<p>Username already taken!</p>"
-				}
-				else if (isset($_GET["error"] == "none")) {
-					echo "<p>You have signed up!</p>"
-				}
-				else if (isset($_GET["error"] == "none")) {
-					echo "<p>You have signed up!</p>"
-				}
-			}*/
-		?>-->
+			}
+			else if (isset($_GET["error"] == "invaliduid")) {
+				echo "<p>invalid username</p>"
+			}
+			else if (isset($_GET["error"] == "invalidemail")) {
+				echo "<p>invalid email</p>"
+			}
+			else if (isset($_GET["error"] == "passwordsdontmatch")) {
+				echo "<p>Passwords doesn't match</p>"
+			}
+			else if (isset($_GET["error"] == "stmtfailed")) {
+				echo "<p>AAAAAAAAAAAAAAA. Something went wrong. Try again later</p>"
+			}
+			else if (isset($_GET["error"] == "usernametaken")) {
+				echo "<p>Username already taken!</p>"
+			}
+			else if (isset($_GET["error"] == "none")) {
+				echo "<p>You have signed up!</p>"
+			}
+			else if (isset($_GET["error"] == "none")) {
+				echo "<p>You have signed up!</p>"
+			}
+	    }*/
+	?>-->
 	</section>
 
 
