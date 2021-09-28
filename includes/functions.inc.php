@@ -1,4 +1,5 @@
 <?php
+ session_start();
 function emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat) {
 	$result;
 	if (empty($name) || empty($email) || empty($username) || empty($pwd) || empty($pwdRepeat)) {
@@ -68,10 +69,9 @@ function uidExists($conn, $username, $email) {
 }
 
 function createUser($conn, $name, $email, $username, $pwd) {
-	console.log("createuser");
-	$sql = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd) VALUES ($name, $email, $username, $pwd);";
 
-	
+	$sql = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd) VALUES (?, ?, ?, ?);";
+
 	$stmt = mysqli_stmt_init($conn);
 	if (!mysqli_stmt_prepare($stmt, $sql)) {
 		header("location: ../signup.php?error=stmtfailed");
@@ -84,6 +84,7 @@ function createUser($conn, $name, $email, $username, $pwd) {
 	mysqli_stmt_execute($stmt);
 
 	mysqli_stmt_close($stmt);
+	
 	
 	header("location: ../signup.php?error=none");
 	exit();
