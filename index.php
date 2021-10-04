@@ -1,8 +1,10 @@
 <?php
 	include_once('header.php');
-	session_start();
+    session_start();
+    include("includes/dbh.inc.php");
+    include("includes/functions.php");
 
-		$_SESSION;
+    $user_data = check_login($conn);
 ?>
 <head>
 	<title>Home</title>

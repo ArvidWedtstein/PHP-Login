@@ -1,6 +1,35 @@
 <?php
- session_start();
-function emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat) {
+
+function check_login($conn) {
+    if (isset($_SESSION['usersUid'])) {
+        $id = $_SESSION['usersUid'];
+        $query = "select * from users where usersUid = '$id' limit 1"; 
+        
+        $result = mysqli_query($conn, $query);
+        if ($result && mysqli_num_rows($result) > 0) {
+            $user_data = mysqli_fetch_assoc($result);
+            return $user_data;
+        }
+    }
+
+    header("Location: ../login.php")
+    die;
+}
+
+function random_num($length) {
+    $text = "";
+    if ($length < 5) {
+        $length = 5;
+    }
+
+    $len = rand(4, $length);
+
+    for ($i=0; $i < $len; $i++) {
+        $text .= rand(0, 9);
+    }
+    return $text;
+}
+/*function emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat) {
 	$result;
 	if (empty($name) || empty($email) || empty($username) || empty($pwd) || empty($pwdRepeat)) {
 		$result = true;
@@ -67,18 +96,14 @@ function uidExists($conn, $username, $email) {
 	
 	mysqli_stmt_close($stmt);
 }
-
+*/
 function createUser($conn, $name, $email, $username, $pwd) {
 	/*$serverName = "localhost";
 	$dBUserName = "arvidbxr_phptest";
 	$dBPassword = "php.test";
 	$dBName = "arvidbxr_wp750";
 	
-	$conn = mysqli_connect($serverName, $dBUserName, $dBPassword, $dBName);
-	$conn = new mysqli($serverName, $dBUserName, $dBPassword, $dbName);
-	if (!$conn) {
-		die("Connection failed: " . mysqli_connect_error());
-	}
+
 	$name = $_POST["name"];
 	$email = $_POST["email"];
 	$username = $_POST["uid"];
@@ -106,14 +131,14 @@ function createUser($conn, $name, $email, $username, $pwd) {
 	mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hashedPwd);
 	mysqli_stmt_execute($stmt);
 
-	mysqli_stmt_close($stmt);*/
+	mysqli_stmt_close($stmt);
 	
 	
 	header("location: ../signup.php?error=none");
-	exit();
+	exit();*/
 }
 
-function loginUser($conn, $username, $pwd) {
+/*function loginUser($conn, $username, $pwd) {
 	
 }
 
@@ -126,5 +151,5 @@ function emptyInputSignup($username, $pwd) {
 		$result = false;
 	}
 	return $result;
-}
+}*/
 ?>
