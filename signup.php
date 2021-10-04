@@ -1,89 +1,84 @@
-<?php
+<?php 
 session_start();
-    include("includes/dbh.inc.php");
-    include("includes/functions.php");
 
-	include_once 'header.php';
+	include("connection.php");
+	include("functions.php");
 
-    if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        $usersName = $_POST["name"];
-        $usersEmail = $_POST["email"];
-        $usersUid = $_POST["uid"];
-        $usersPwd = $_POST["pwd"];
 
-        if (!empty($name) && !empty($pwd) && !is_numeric($username)) {
-            // save to database
+	if($_SERVER['REQUEST_METHOD'] == "POST")
+	{
+		//something was posted
+		$user_name = $_POST['user_name'];
+		$password = $_POST['password'];
 
-            $query = "insert into users (usersName, usersEmail, usersUid, usersPwd) values ('$usersName', '$usersEmail', '$usersUid', '$usersPwd')";
-            mysqli_query($conn, $query);
+		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
+		{
 
-            header("Location: login.php");
-            die;
-        } else {
-            echo "Please enter some valid information"
-        }
-    }
+			//save to database
+			$user_id = random_num(20);
+			$query = "insert into users (user_id,user_name,password) values ('$user_id','$user_name','$password')";
+
+			mysqli_query($con, $query);
+
+			header("Location: login.php");
+			die;
+		}else
+		{
+			echo "Please enter some valid information!";
+		}
+	}
 ?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Signup</title>
+</head>
 <body>
 
-	<section class="signup-form">
-		<div class="color"></div>
-		<div class="color"></div>
-		<div class="color"></div>
-		<div class="signup">
-			<form class="form" action="includes/signup.inc.php" method="post">
-				<h2>Signup Form</h2>
-				<div class="inputBox">
-					<input type="text" name="name" placeholder="Full name...">
-				</div>
-				<div class="inputBox">
-					<input type="text" name="email" placeholder="Email...">
-				</div>
-				<div class="inputBox">
-					<input type="text" name="uid" placeholder="Username...">
-				</div>
-				<div class="inputBox">
-					<input type="password" name="pwd" placeholder="Password...">
-				</div>
-				<div class="inputBox">
-					<input type="password" name="pwdrepeat" placeholder="Repeat Password...">
-				</div>
-				<div class="inputBox">
-					<button type="submit" name="submit">Signup</button>
-				</div>
-			</form>
-		</div>
-	</section>
-    <!--<?php
-        /*if (isset($_GET["error"])) {
-                if (isset($_GET["error"] == "emptyinput")) {
-                        echo "<p>FILL IN ALL FIELDS</p>";
-                }
-                else if (isset($_GET["error"] == "invaliduid")) {
-                    echo "<p>invalid username</p>"
-                }
-                else if (isset($_GET["error"] == "invalidemail")) {
-                    echo "<p>invalid email</p>"
-                }
-                else if (isset($_GET["error"] == "passwordsdontmatch")) {
-                    echo "<p>Passwords doesn't match</p>"
-                }
-                else if (isset($_GET["error"] == "stmtfailed")) {
-                    echo "<p>AAAAAAAAAAAAAAA. Something went wrong. Try again later</p>"
-                }
-                else if (isset($_GET["error"] == "usernametaken")) {
-                    echo "<p>Username already taken!</p>"
-                }
-                else if (isset($_GET["error"] == "none")) {
-                    echo "<p>You have signed up!</p>"
-                }
-                else if (isset($_GET["error"] == "none")) {
-                    echo "<p>You have signed up!</p>"
-                }
-            }*/
-	    ?>-->
-</body>
+	<style type="text/css">
+	
+	#text{
 
-<?php
-	include_once 'footer.php';
-?>
+		height: 25px;
+		border-radius: 5px;
+		padding: 4px;
+		border: solid thin #aaa;
+		width: 100%;
+	}
+
+	#button{
+
+		padding: 10px;
+		width: 100px;
+		color: white;
+		background-color: lightblue;
+		border: none;
+	}
+
+	#box{
+
+		background-color: grey;
+		margin: auto;
+		width: 300px;
+		padding: 20px;
+	}
+
+	</style>
+
+	<div id="box">
+		
+		<form method="post">
+			<div style="font-size: 20px;margin: 10px;color: white;">Signup</div>
+
+			<input id="text" type="text" name="user_name"><br><br>
+			<input id="text" type="password" name="password"><br><br>
+
+			<input id="button" type="submit" value="Signup"><br><br>
+
+			<a href="login.php">Click to Login</a><br><br>
+		</form>
+	</div>
+</body>
+</html>

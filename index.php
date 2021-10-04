@@ -1,23 +1,24 @@
-<?php
-	include_once('header.php');
-    session_start();
-    include("includes/dbh.inc.php");
-    include("includes/functions.php");
+<?php 
+session_start();
 
-    $user_data = check_login($conn);
+	include("connection.php");
+	include("functions.php");
+
+	$user_data = check_login($con);
+
 ?>
+
+<!DOCTYPE html>
+<html>
 <head>
-	<title>Home</title>
+	<title>My website</title>
 </head>
 <body>
-	<div class="test">
-		<p>Main Page</p>
-		
-		<img src="./img/php.png">
-	</div>
-    <a href="signup.php">Sign Up</a>
-    <a href="login.php">Log In</a>
+
+	<a href="logout.php">Logout</a>
+	<h1>This is the index page</h1>
+
+	<br>
+	Hello, <?php echo $user_data['user_name']; ?>
 </body>
-<?php
-	include_once('footer.php');
-?>
+</html>
