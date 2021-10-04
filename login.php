@@ -1,7 +1,9 @@
 <?php
 	include_once 'header.php';
 ?>
-
+<head>
+	<title>Login</title>
+</head>
 <section class="login-form">
   <h2>Log In</h2>
 	<div class="login">

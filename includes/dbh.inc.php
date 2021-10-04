@@ -30,3 +30,9 @@ $sql = "INSERT INTO `users` (`usersName`, `usersEmail`, `usersUid`, `usersPwd`) 
 
 mysqli_close($conn);
 
+header("location: ../index.php");
+echo "<p style="color: white">User Created</p>"
+exit();
+?>
+
+

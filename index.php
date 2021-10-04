@@ -5,8 +5,7 @@
 		$_SESSION;
 ?>
 <head>
-	<title>Login</title>
-	<link rel="stylesheet" href="css/index.css">
+	<title>Home</title>
 </head>
 <body>
 	<div class="test">
@@ -14,18 +13,8 @@
 		
 		<img src="./img/php.png">
 	</div>
-	<div class="loader">
-		<span style="--i:0;"><a href="signup.php">cligg</a></span>
-		<span style="--i:1"><a href="signup.php">cligg</a></span>
-		<span style="--i:2"><a href="signup.php">cligg</a></span>
-		<span style="--i:3"><a href="signup.php">cligg</a></span>
-		<span style="--i:4"><a href="signup.php">cligg</a></span>
-		<span style="--i:5"><a href="signup.php">cligg</a></span>
-		<span style="--i:6"><a href="signup.php">cligg</a></span>
-		<span style="--i:7"><a href="signup.php">cligg</a></span>
-		<span style="--i:8"><a href="signup.php">cligg</a></span>
-		<span style="--i:9"><a href="signup.php">cligg</a></span>
-	</div>	
+    <a href="signup.php">Sign Up</a>
+    <a href="login.php">Log In</a>
 </body>
 <?php
 	include_once('footer.php');
