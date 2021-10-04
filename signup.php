@@ -1,8 +1,8 @@
 <?php 
 session_start();
 
-	include($_SERVER['DOCUMENT_ROOT']."connection.php");
-	include($_SERVER['DOCUMENT_ROOT']."functions.php"); 
+	include("connection.php");
+	include("functions.php");
 
 
 	if($_SERVER['REQUEST_METHOD'] == "POST")

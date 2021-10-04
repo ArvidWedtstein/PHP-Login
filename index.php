@@ -1,11 +1,8 @@
 <?php 
 session_start();
 
-	include($_SERVER['DOCUMENT_ROOT']."connection.php");
-	include($_SERVER['DOCUMENT_ROOT']."functions.php");
-
-    include('connection.php');
-    include('functions.php');
+	include("connection.php");
+	include("functions.php");
 
 	$user_data = check_login($con);
 
