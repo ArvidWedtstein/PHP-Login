@@ -7,50 +7,7 @@ session_start();
     include_once("header.php");
 ?>
 <style>
-.loginbox {
-    position: relative;
-    width: 300px;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0,0,0, 0.5);
-    overflow: hidden;
-}
-
-.loginbox::before {
-    content: '';
-    position: absolute;
-    width: 150px;
-    height: 140%;
-    background: linear-gradient(#00ccff, #d400d4);
-    animation: rotate 4s linear infinite;
-}
-
-.loginbox::after {
-    content: '';
-    position: absolute;
-    inset: 8px;
-    background: #0e1538;
-    border-radius: 16px;
-}
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-        filter: hue-rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-        filter: hue-rotate(360deg);
-    }
-}
-
-.loginbox h2 {
-    position: relative;
-    color: #ffffff;
-    font-size: 3em;
-    z-index: 10;
-}
+<?php include 'css/index.css'; ?>
 </style>
 <section>
     <div class="loginbox">

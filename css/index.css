@@ -1,58 +1,13 @@
 body {
-    align-items: center;
-    justify-content: center;
-    text-align: center;
     background: #0e1538;
-}
-.test {
-    color:aqua;
-}
-.test img {
-    height: 100px;
-    width: 100px;
-    background: #eaeef0;
-    margin: 0 20px;
-    border: 2px solid #eaeef0;
-    border-radius: 20%;
-    box-shadow: -16px -16px 30px rgba(255,255,255,1),
-    16px 16px 30px rgba(0,0,0,0.2),
-    inset 6px 6px 10px rgba(0,0,0,0.1),
-    inset -2px -2px 10px rgba(255,255,255,1);
-}
-section {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height:100vh;
-    background: linear-gradient(to bottom, #f1f4f9, #dff1ff);
+    min-height: 100vh;
 }
 
-section .color {
-    position: absolute;   
-    filter: blur(150px);
+section {
+    background: none;
+    padding: 10px;
 }
-
-section .color:nth-child(1) {
-    top: -350px;
-    width: 600px;
-    height: 600px;
-    background: #ff359b;
-}
-section .color:nth-child(2) {
-    bottom: -150px;
-    left: 100px;
-    width: 600px;
-    height: 600px;
-    background: #fffd87;
-}
-section .color:nth-child(3) {
-    bottom: 50px;
-    right: 100px;
-    width: 300px;
-    height: 300px;
-    background: #00d2ff;
-}
-
 
 .form {
     position: relative;
@@ -67,6 +22,7 @@ section .color:nth-child(3) {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: -1;
     width: 100%;
     height: 100%;
     background: linear-gradient(315deg, #ffec61, #f321d7);
@@ -282,4 +238,59 @@ section .color:nth-child(3) {
     height: 100%;
     background: rgba(255, 255, 255, 0.2);
     transform: skewX(345deg);
+}
+
+.navigation {
+    position: relative;
+    height: 500%;
+    width: 300px;
+    background: #2b343b;
+    box-shadow: 10px 0 0 #4187f6;
+}
+
+.navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 40px;
+}
+.navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.navigation ul li.active {
+    background: #4187f6;
+}
+.navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #ffffff;
+}
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center;
+}
+.navigation ul li a .icon i {
+    position: relative;
+    font-size: 1.5em;
+    z-index: 1;
+}
+.navigation ul li a .icon .title{
+    position: relative;
+    display: block;
+    padding-left: 10px;
+    height: 60px;
+    line-height: 60px;
 }
