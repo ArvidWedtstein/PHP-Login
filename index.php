@@ -1,8 +1,8 @@
 <?php 
 session_start();
 
-	include("connection.php");
-	include("functions.php");
+	include("includes/dbh.inc.php");
+	include("includes/functions.inc.php");
 
 	$user_data = check_login($con);
 
@@ -11,7 +11,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My website</title>
+	<title>AH YES PHP</title>
 </head>
 <body>
 

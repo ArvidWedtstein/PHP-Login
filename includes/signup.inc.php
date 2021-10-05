@@ -32,7 +32,7 @@ if (isset($_POST["submit"])) {
         exit();
     }
 
-    if (uidExists($con, $username) !== false) {
+    if (uidExists($con, $username, $email) !== false) {
         header("Location: ../signup.php?error=usernametaken");
         exit();
     }

@@ -12,7 +12,7 @@ function emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat) {
 
 function invalidUid($username) {
     $result;
-    if (!preg_match("/^[a-zA-Z0-9]*$/"), $username) {
+    if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
         $result = true;
     } else {
         $result = false;
@@ -63,8 +63,32 @@ function uidExists($con, $username, $email) {
     mysqli_stmt_close($stmt);
 }
 
+function check_login($con)
+{
+
+	if(isset($_SESSION['user_id']))
+	{
+
+		$id = $_SESSION['user_id'];
+		$query = "SELECT * from `users` where user_id = '$id' limit 1";
+
+		$result = mysqli_query($con,$query);
+		if($result && mysqli_num_rows($result) > 0)
+		{
+
+			$user_data = mysqli_fetch_assoc($result);
+			return $user_data;
+		}
+	}
+
+	//redirect to login
+	header("Location: login.php");
+	die;
+
+}
+
 function createUser($con, $name, $email, $username, $pwd) {
-    $sql = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd) VALUES (?, ?, ?, ?);";
+    $sql = "INSERT INTO `users` (usersName, usersEmail, usersUid, usersPwd) VALUES (?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($con);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("Location: ../signup.php?error=stmtfailed");
@@ -73,7 +97,7 @@ function createUser($con, $name, $email, $username, $pwd) {
 
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hasedPwd);
+    mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $username, $hashedPwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
