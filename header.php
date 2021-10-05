@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 <html>	
     <head>
@@ -26,3 +24,6 @@ session_start();
         </ul>
     </div>
 </nav>
+<?php
+session_start();
+?>

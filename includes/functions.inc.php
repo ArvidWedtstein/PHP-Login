@@ -135,6 +135,7 @@ function loginUser($con, $username, $pwd) {
         session_start();
         $_SESSION["userid"] = $uidExists["usersId"];
         $_SESSION["useruid"] = $uidExists["usersUid"];
+        $_SESSION["userprofileimage"] = $uidExists["imagebin"];
         header("Location: ../index.php");
         exit();
 
