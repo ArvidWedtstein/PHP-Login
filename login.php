@@ -8,7 +8,7 @@ include_once('header.php');
         <h2>Log In</h2>
         <form class="form" action="includes/login.inc.php" method="post">
             <div class="inputBox">
-                <input type="text" name="name" placeholder="Username/Email">
+                <input type="text" name="uid" placeholder="Username/Email">
             </div>
             <div class="inputBox">
                 <input type="password" name="pwd" placeholder="Password">

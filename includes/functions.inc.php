@@ -125,7 +125,7 @@ function loginUser($con, $username, $pwd) {
     }
 
     $pwdHashed = $uidExists["usersPwd"];
-
+    echo "$pwdHashed";
     $checkPwd = password_verify($pwd, $pwdHashed);
 
     if ($checkPwd === false) {
@@ -135,7 +135,7 @@ function loginUser($con, $username, $pwd) {
         session_start();
         $_SESSION["userid"] = $uidExists["usersId"];
         $_SESSION["usersuid"] = $uidExists["usersUid"];
-
+        echo "logged innnnnnb";
         header("Location: ../index.php");
         exit();
 
