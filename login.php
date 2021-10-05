@@ -21,6 +21,15 @@ include_once('header.php');
             </div>  
         </form>
     </div>
+    <?php
+        if (isset($_GET["error"])) {
+            if ($_GET["error"] == "emptyinput") {
+                echo "<p>You have to fill in all fields</p>";
+            } else if ($_GET["error"] == "wronglogin") {
+                echo "<p>Incorrect login information</p>";
+            }
+        }
+    ?>
 </section>
 
 <?php
