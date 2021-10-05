@@ -9,9 +9,10 @@ session_start();
 	{
 		//something was posted
 		$user_name = $_POST['user_name'];
+        $email = $_POST['email'];
 		$password = $_POST['password'];
 
-		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
+		if(!empty($user_name) && !empty($password) && !empty($email) && !is_numeric($user_name))
 		{
 
 			//save to database
@@ -19,7 +20,7 @@ session_start();
 			$query = "insert into users (user_id,user_name,password) values ('$user_id','$user_name','$password')";
 
 			mysqli_query($con, $query);
-
+            
 			header("Location: login.php");
 			die;
 		}else
@@ -72,8 +73,10 @@ session_start();
 		<form method="post">
 			<div style="font-size: 20px;margin: 10px;color: white;">Signup</div>
 
-			<input id="text" type="text" name="user_name"><br><br>
-			<input id="text" type="password" name="password"><br><br>
+			<input id="text" type="text" name="user_name" placeholder="username"><br><br>
+            <input id="text" type="email" name="email" placeholder="email"><br><br>
+			<input id="text" type="password" name="password" placeholder="password"><br><br>
+			
 
 			<input id="button" type="submit" value="Signup"><br><br>
 

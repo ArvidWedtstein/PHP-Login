@@ -2,8 +2,8 @@
 
 session_start();
 
-	include($_SERVER['DOCUMENT_ROOT']."connection.php");
-	include($_SERVER['DOCUMENT_ROOT']."functions.php");
+	include("connection.php");
+	include("functions.php");
 
 
 	if($_SERVER['REQUEST_METHOD'] == "POST")
@@ -16,7 +16,7 @@ session_start();
 		{
 
 			//read from database
-			$query = "select * from users where user_name = '$user_name' limit 1";
+			$query = "SELECT * from `users` where user_name = '$user_name' limit 1";
 			$result = mysqli_query($con, $query);
 
 			if($result)
