@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>	
     <head>
@@ -34,33 +33,11 @@
         </li>
         <?php
             if (isset($_SESSION["useruid"])) {
-                echo "<li class='list'><a href='includes/logout.inc.php'><span class='icon'></span><span class='list'>Sign Out</span></a></li>";
+                echo "<li class='list'><a href='includes/logout.inc.php'><span class='icon'><img alt='signout' width='50px' src='img/logout.png'/></span><span class='title'>Sign Out</span></a></li>";
             } else {
-                echo "<li><a href='signup.php'>Sign Up</a></li>";
-                echo "<li><a href='login.php'>Log In</a></li>";
+                echo "<li class='list'><a href='signup.php'><span class='icon'><img alt='signout' width='50px' src='img/login.png'/></span><span class='title'>Sign Up</span></a></li>";
+                echo "<li class='list'><a href='login.php'><span class='icon'><img alt='signout' width='50px' src='img/login.png'/></span><span class='title'>Log In</span></a></li>";
             }
         ?>
     </ul>
 </div>
-<nav>
-    <div class="wrapper">
-        <a href="index.php"><img src="img/php1.png" width="50px" alt="php">PHP</a>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="index.php">Stuff</a></li>
-            <?php
-                if (isset($_SESSION["useruid"])) {
-                    echo "<li><a href='profile.php'>Profile</a></li>";
-                    echo "<li><a href='includes/logout.inc.php'>Log Out</a></li>";
-                } else {
-                    echo "<li><a href='signup.php'>Sign Up</a></li>";
-                    echo "<li><a href='login.php'>Log In</a></li>";
-                }
-
-            ?>
-        </ul>
-    </div>
-</nav>
-<?php
-session_start();
-?>

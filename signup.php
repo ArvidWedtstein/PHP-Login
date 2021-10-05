@@ -2,10 +2,11 @@
 include_once('header.php');
 
 ?>
-
+<style>
+<?php include 'css/index.css'; ?>
+</style>
 <section class="signup-form">
     <div class="signup">
-        <h2>Sign Up</h2>
         <form class="form" action="includes/signup.inc.php" method="post">
             <h2>Signup Form</h2>
             <div class="inputBox">

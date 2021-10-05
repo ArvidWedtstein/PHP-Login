@@ -1,14 +1,13 @@
 <?php
 include_once('header.php');
-
 ?>
 <style>
 <?php include 'css/index.css'; ?>
 </style>
 <section class="signup-form">
     <div class="signup">
-        <h2>Log In</h2>
         <form class="form" action="includes/login.inc.php" method="post">
+            <h2>Log In</h2>
             <div class="inputBox">
                 <input type="text" name="uid" placeholder="Username/Email">
             </div>

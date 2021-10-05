@@ -2,8 +2,16 @@ body {
     background: #0e1538;
     display: flex;
     min-height: 100vh;
+    padding: 0;
+    font-family: 'Vecna';
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
-
+@font-face {
+    font-family: 'Vecna';
+    src: url('Vecna.otf') format('truetype')
+}
 section {
     background: none;
     padding: 10px;
@@ -13,8 +21,8 @@ section {
     position: relative;
     width: 100%;
     height: 100%;
-    padding: 40px;
-    padding: 10px;
+    padding: 50px;
+    border-radius: 10px;
     background: linear-gradient(315deg, #ffec61, #f321d7);
 }
 .form::before {
@@ -22,7 +30,7 @@ section {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: -2;
     width: 100%;
     height: 100%;
     background: linear-gradient(315deg, #ffec61, #f321d7);
@@ -39,15 +47,6 @@ section {
     margin-bottom: 40px;
 }
 
-.form h2::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    width: 80px;
-    height: 4px;
-    background: #ffffff;
-}
 
 .form .inputBox {
     width: 100%;
@@ -81,75 +80,14 @@ section {
     font-weight: 600;
 } 
 
-.loader {
-    position: fixed;
-    left: 50%;
-    top: 80%;
-    color: #ffffff;
-    
-}
-.loader span {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    
-    display: block;
-    animation: animate 8s linear infinite;
-    animation-delay: calc(-1s * var(--i));
-    transform-origin: bottom;
-    background: #0f0;
-    border-radius: 10%;
-    /*box-shadow: 0 0 10px #00ff00,
-    0 0 40px #0f0,
-    0 0 80px #0f0,
-    0 0 120px #0f0,
-    0 0 160px #0f0;*/
-    box-shadow: 0px 3px 0px 2px rgba(0,255,0,0.1), 0px 6px 0px 4px rgba(0,255,0,0.1), 0px 9px 0px 6px rgba(0,255,0,0.1), 0px 12px 0px 8px rgba(0,255,0,0.1), 0px 15px 0px 10px rgba(0,255,0,0.1), 0px 18px 0px 12px rgba(0,255,0,0.1), 0px 21px 0px 14px rgba(0,255,0,0.1), 0px 24px 0px 16px rgba(0,255,0,0.1), 0px 27px 0px 18px rgba(0,255,0,0.1), 0px 30px 0px 20px rgba(0,255,0,0.1), inset 0px 50px 50px -30px rgba(0,255,0,0);
-    color: #ffffff;
-}
-
-@keyframes animate {
-    0% {
-        top: 0;
-        left: 150px;
-        transform: scaleY(1);
-        filter: hue-rotate(0deg);
-    }
-    2% {
-        top: 0;
-        left: 150px;
-        transform: scaleY(0.4);
-    }
-    10% {
-        top: 0;
-        left: 80px;
-        transform: scaleY(1);
-    }
-    40% {
-        top: 0;
-        left: -150px;
-    }
-    60% {
-        top: -200px;
-        left: -150px;
-    }
-    85% {
-        top: -200px;
-        left: 150px;
-    }
-    100% {
-        top: 0px;
-        left: 150px;
-        filter:hue-rotate(360deg);
-    }
-}
-
 .loginbox {
-    position: relative;
-    width: 300px;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    width: 400px;
     height: 400px;
     display: flex;
-    justify-content: center;
+    justify-content: center !important;
     align-items: center;
     background: rgba(0,0,0, 0.5);
     overflow: hidden;
@@ -183,8 +121,10 @@ section {
 .loginbox h2 {
     position: relative;
     color: #ffffff;
-    font-size: 3em;
-    z-index: 10;
+    font-size: 2em;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
 }
 
 .glasscard {
@@ -219,33 +159,40 @@ section {
 .glasscard span:nth-child(4) {
     background: #00C456;
 }
-
-.glasscard .signup {
-    position: absolute;
-    width: 450px;
-    height: 300px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 20px;
-    border: 1px solid #ffffff;
-    overflow: hidden;
-}
-.glasscard .signup::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -50%;
-    width: 100%;
-    height: 100%;
+.signup {
+    position: relative;
+    width: 400px;
+    min-height: 400px;
     background: rgba(255, 255, 255, 0.2);
-    transform: skewX(345deg);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-right: 1px solid rgba(255,255,255,0.2);
 }
+
+
 
 .navigation {
-    position: relative;
-    height: 500%;
-    width: 300px;
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 65px;
     background: #2b343b;
     box-shadow: 10px 0 0 #4187f6;
+    overflow-x: hidden;
+    overflow: hidden;
+    transform-origin: left;
+    transition: width 0.5s;
+}
+.navigation:hover {
+    width: 200px;
 }
 
 .navigation ul {
@@ -264,15 +211,53 @@ section {
     border-bottom-left-radius: 20px;
 }
 .navigation ul li.active {
-    background: #4187f6;
+    /*background: #4187f6;*/
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #ffffff;
+}
+.navigation ul li.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    background: linear-gradient(315deg, #ffec61, #f321d7);
+    filter: blur(30px);
+}
+.navigation ul li:hover {
+    /*background: rgba(65, 135, 246, 0.5);*/
+    background: rgba(255, 255, 255, 0.1);
 }
 .navigation ul li a {
     position: relative;
+    font-size: 1.5rem;
     display: block;
     width: 100%;
     display: flex;
     text-decoration: none;
     color: #ffffff;
+}
+.navigation ul li.active a::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 15px 15px 0 #4187f6;
+}
+.navigation ul li.active a::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: #2b343b;
+    border-radius: 50%;
+    box-shadow: 15px -15px 0 #4187f6;
 }
 .navigation ul li a .icon {
     position: relative;
@@ -287,10 +272,11 @@ section {
     font-size: 1.5em;
     z-index: 1;
 }
-.navigation ul li a .icon .title{
-    position: relative;
+.navigation ul li a .title {
+    position: absolute;
     display: block;
-    padding-left: 10px;
+    padding-left: 60px !important;
     height: 60px;
     line-height: 60px;
+    white-space: nowrap;
 }
