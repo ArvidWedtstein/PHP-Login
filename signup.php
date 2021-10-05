@@ -1,87 +1,24 @@
-<?php 
-session_start();
+<?php
+include_once('header.php');
 
-	include("connection.php");
-	include("functions.php");
-
-
-	if($_SERVER['REQUEST_METHOD'] == "POST")
-	{
-		//something was posted
-		$user_name = $_POST['user_name'];
-        $email = $_POST['email'];
-		$password = $_POST['password'];
-
-		if(!empty($user_name) && !empty($password) && !empty($email) && !is_numeric($user_name))
-		{
-
-			//save to database
-			$user_id = random_num(20);
-			$query = "insert into users (user_id,user_name,password) values ('$user_id','$user_name','$password')";
-
-			mysqli_query($con, $query);
-            
-			header("Location: login.php");
-			die;
-		}else
-		{
-			echo "Please enter some valid information!";
-		}
-	}
 ?>
 
+<section class="signup-form">
+    <h2>Sign Up</h2>
+    <div class="signup-form-form">
+        <form action="includes/signup.inc.php" method="post">
+            <input type="text" name="name" placeholder="Full name">
+            <input type="text" name="email" placeholder="Email">
+            <input type="text" name="uid" placeholder="Username">
+            <input type="password" name="pwd" placeholder="Password">
+            <input type="password" name="pwdrepeat" placeholder="Repeat Password">
+            <button type="submit" name="submit">Sign Up</button>
+        </form>
+    </div>
+</section>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Signup</title>
-</head>
-<body>
+<?php
 
-	<style type="text/css">
-	
-	#text{
+include_once('footer.php');
 
-		height: 25px;
-		border-radius: 5px;
-		padding: 4px;
-		border: solid thin #aaa;
-		width: 100%;
-	}
-
-	#button{
-
-		padding: 10px;
-		width: 100px;
-		color: white;
-		background-color: lightblue;
-		border: none;
-	}
-
-	#box{
-
-		background-color: grey;
-		margin: auto;
-		width: 300px;
-		padding: 20px;
-	}
-
-	</style>
-
-	<div id="box">
-		
-		<form method="post">
-			<div style="font-size: 20px;margin: 10px;color: white;">Signup</div>
-
-			<input id="text" type="text" name="user_name" placeholder="username"><br><br>
-            <input id="text" type="email" name="email" placeholder="email"><br><br>
-			<input id="text" type="password" name="password" placeholder="password"><br><br>
-			
-
-			<input id="button" type="submit" value="Signup"><br><br>
-
-			<a href="login.php">Click to Login</a><br><br>
-		</form>
-	</div>
-</body>
-</html>
+?>
