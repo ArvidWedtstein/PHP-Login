@@ -6,13 +6,19 @@ session_start();
 
     include("header.php");
 ?>
+<section class="index">
+    <?php
+        if (isset($_SESSION["useruid"])) {
+            echo "<p>Well, hello there " . $_SESSION["useruid"] . "</p>";
+        }
+
+    ?>
 
 
-	<a href="logout.php">Logout</a>
 	<h1>This is the index page</h1>
 	<br>
-    <a href="login.php">login</a>
 
+</section>
 
 
 
