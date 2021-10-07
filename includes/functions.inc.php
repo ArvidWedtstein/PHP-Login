@@ -114,6 +114,15 @@ function emptyInputLogin($username, $pwd) {
     }
     return $result;
 }
+function emptyInputUpdateUsername($username) {
+    $result;
+    if (empty($username)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
 
 function loginUser($con, $username, $pwd) {
 
@@ -135,10 +144,21 @@ function loginUser($con, $username, $pwd) {
         session_start();
         $_SESSION["userid"] = $uidExists["usersId"];
         $_SESSION["useruid"] = $uidExists["usersUid"];
-        $_SESSION["userprofileimage"] = $uidExists["imagebin"];
         header("Location: ../index.php");
         exit();
 
     }
+}
+
+function renameUser($con, $newname) {
+    if(isset($_SESSION['user_id']))
+	{
+        $id = $_SESSION['usersUid'];
+        $query = "UPDATE `users` SET `usersUid`='$newname',  WHERE usersUid = '$id';";
+        $result = mysqli_query($con,$query) or die(mysqli_error($con));
+	}
+
+    header("Location: ../index.php");
+    exit();
 }
 ?>

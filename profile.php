@@ -7,16 +7,19 @@ session_start();
     include_once("header.php");
 ?>
 <style>
-<?php include 'css/index.css'; ?>
+<?php include 'css/index.scss'; ?>
 </style>
 <section>
-    <div class="loginbox">
-        <h1 class="profiletxt">Profile</h1>
+    <div class="box">
+        
         <?php
             if (isset($_SESSION["useruid"])) {
+                echo "<h1 class='profiletxt'>Profile</h1>";
                 echo "<h2>Username: " . $_SESSION["useruid"] . "</h2>";
-                echo "<input placeholder='Change Username' name='newusername'/>"
+            } else {
+                echo "<a class='profiletxt' href='login.php'>Log In to view your profile</a>";
             }
+            
             
             
 
